@@ -6,11 +6,31 @@ figma.ui.resize(500, 500);
 figma.ui.onmessage = (message) => {
   const numbersArray: number[] = message.split(",").map(Number);
   console.log(numbersArray);
-  Create(numbersArray[0], numbersArray[1], numbersArray[2]);
+  Create(
+    numbersArray[0],
+    numbersArray[1],
+    numbersArray[2],
+    numbersArray[3],
+    numbersArray[4],
+    numbersArray[5]
+  );
 };
 
-function Create(startingBlur: number, maxBlur: number, blurIncrement: number) {
-  const numberOfSteps = Math.ceil((maxBlur - startingBlur) / blurIncrement / 2);
+function Create(
+  startingLayerBlur: number,
+  maxLayerBlur: number,
+  layerBlurIncrement: number,
+  startingBackgroundBlur: number,
+  maxBackgroundBlur: number,
+  backgroundBlurIncrement: number
+) {
+  // Calculate the number of steps needed, based on the larger set of differences
+  const numberOfSteps = Math.max(
+    Math.ceil((maxLayerBlur - startingLayerBlur) / layerBlurIncrement),
+    Math.ceil(
+      (maxBackgroundBlur - startingBackgroundBlur) / backgroundBlurIncrement
+    )
+  );
 
   const frame = figma.createFrame();
   frame.resize(400, 300); // Adjust the size as desired
@@ -21,7 +41,6 @@ function Create(startingBlur: number, maxBlur: number, blurIncrement: number) {
   frame.counterAxisSizingMode = "AUTO"; // Automatically adjust width
   frame.clipsContent = false; // Prevent the frame from clipping its contents
 
-  // Voeg rechthoeken toe met toenemende blur en afnemende dekking
   for (let i = 0; i < numberOfSteps; i++) {
     const rect = figma.createRectangle();
 
@@ -30,18 +49,18 @@ function Create(startingBlur: number, maxBlur: number, blurIncrement: number) {
     ];
     rect.blendMode = "PASS_THROUGH";
 
-    // Stel de blur-effecten in
+    // Calculate current blurs
+    let currentLayerBlur = startingLayerBlur + layerBlurIncrement * i;
+    let currentBackgroundBlur =
+      startingBackgroundBlur + backgroundBlurIncrement * i;
+
+    // Ensure the current blurs do not exceed their max values
+    currentLayerBlur = Math.min(currentLayerBlur, maxLayerBlur);
+    currentBackgroundBlur = Math.min(currentBackgroundBlur, maxBackgroundBlur);
+
     rect.effects = [
-      {
-        type: "BACKGROUND_BLUR",
-        visible: true,
-        radius: startingBlur + blurIncrement * i,
-      },
-      {
-        type: "LAYER_BLUR",
-        visible: true,
-        radius: (startingBlur + blurIncrement * i) / 2,
-      },
+      { type: "BACKGROUND_BLUR", visible: true, radius: currentBackgroundBlur },
+      { type: "LAYER_BLUR", visible: true, radius: currentLayerBlur },
     ];
     //  rect.effects = [
     //    {
@@ -55,11 +74,10 @@ function Create(startingBlur: number, maxBlur: number, blurIncrement: number) {
     //      radius: maxBlur * ((i + 0.1) / numberOfSteps),
     //    },
     //  ];
-    // Zorg dat de rechthoeken horizontaal en verticaal het frame huggen
-    rect.layoutAlign = "STRETCH"; // Dit zorgt ervoor dat de rechthoek zich uitstrekt om de parent te vullen
+
+    rect.layoutAlign = "STRETCH";
     rect.layoutGrow = 1;
 
-    // Voeg de rechthoek toe aan het frame
     frame.appendChild(rect);
   }
   // Selecteer het frame en zoom in op het canvas
