@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Progressive Blur Configuration</title>
+    <meta name="description" content="Configure progressive blur in Figma!" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+    />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: var(--figma-color-bg);
+        color: var(--figma-color-text);
+        padding: 20px;
+      }
+      form {
+        margin-bottom: 20px;
+      }
+      h1 {
+        margin-top: 0;
+        color: #007bff;
+      }
+      h2 {
+        margin-top: 20px;
+        color: #555;
+      }
+      input[type="number"] {
+        width: 100%;
+        padding: 10px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+      }
+      button {
+        background-color: #007bff;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-top: 10px;
+      }
+      button:hover {
+        background-color: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Progressive Blur Generator (Alpha)</h1>
+    <form id="configForm">
+      <div>
+        <label for="startingBlur">Starting blur radius:</label>
+        <input
+          type="number"
+          id="startingBlur"
+          name="startingBlur"
+          placeholder="Enter starting blur radius"
+          value="2"
+          min="1"
+        />
+      </div>
+      <div>
+        <label for="maxBlur">Max Blur:</label>
+        <input
+          type="number"
+          id="maxBlur"
+          name="maxBlur"
+          placeholder="Enter max blur value"
+          value="100"
+          min="1"
+        />
+      </div>
+      <div>
+        <label for="blurIncrement">Blur Increment:</label>
+        <input
+          type="number"
+          id="blurIncrement"
+          name="blurIncrement"
+          placeholder="How much the blur should increment"
+          value="1"
+          min="0.1"
+        />
+      </div>
+      <button type="button" onclick="passData()">Create the Blur!</button>
+    </form>
+    <h1>Documentation</h1>
+    <p>
+      Starting blur is the blur radius of the first rectangle<br />
+      Max blur is how intense you want the blur to become.<br />
+      Blur Increment is how much blur there will be added per rectangle<br />
+      To make the transition between all rectangles smoother, you can adjust the
+      negative gap in the Frame with auto-layout.
+    </p>
+    <script>
+      function passData() {
+        let startingBlur = document.getElementById("startingBlur").value;
+        let maxBlur = document.getElementById("maxBlur").value;
+        let blurIncrement = document.getElementById("blurIncrement").value;
+        parent.postMessage(
+          { pluginMessage: startingBlur + "," + maxBlur + "," + blurIncrement },
+          "*"
+        );
+      }
+    </script>
+  </body>
+</html>
