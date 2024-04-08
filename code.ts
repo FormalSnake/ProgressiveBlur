@@ -2,7 +2,7 @@
 // const numberOfSteps = 10; // Het aantal stappen in de gradient
 // const maxBlur = 100; // De maximale blur-waarde
 figma.showUI(__html__, { themeColors: true /* other options */ });
-figma.ui.resize(500, 500);
+figma.ui.resize(552, 547);
 figma.ui.onmessage = (message) => {
   const numbersArray: number[] = message.split(",").map(Number);
   console.log(numbersArray);
@@ -27,9 +27,7 @@ function Create(
   // Calculate the number of steps needed, based on the larger set of differences
   const numberOfSteps = Math.max(
     Math.ceil((maxLayerBlur - startingLayerBlur) / layerBlurIncrement),
-    Math.ceil(
-      (maxBackgroundBlur - startingBackgroundBlur) / backgroundBlurIncrement
-    )
+    Math.ceil((maxBackgroundBlur - startingBackgroundBlur) / backgroundBlurIncrement)
   );
 
   const frame = figma.createFrame();
@@ -44,15 +42,12 @@ function Create(
   for (let i = 0; i < numberOfSteps; i++) {
     const rect = figma.createRectangle();
 
-    rect.fills = [
-      { type: "SOLID", color: { r: 1, g: 1, b: 1 }, opacity: 0.01 },
-    ];
+    rect.fills = [{ type: "SOLID", color: { r: 1, g: 1, b: 1 }, opacity: 0.01 }];
     rect.blendMode = "PASS_THROUGH";
 
     // Calculate current blurs
     let currentLayerBlur = startingLayerBlur + layerBlurIncrement * i;
-    let currentBackgroundBlur =
-      startingBackgroundBlur + backgroundBlurIncrement * i;
+    let currentBackgroundBlur = startingBackgroundBlur + backgroundBlurIncrement * i;
 
     // Ensure the current blurs do not exceed their max values
     currentLayerBlur = Math.min(currentLayerBlur, maxLayerBlur);

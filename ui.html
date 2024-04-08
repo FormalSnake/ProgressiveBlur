@@ -11,144 +11,232 @@
     />
     <style>
       body {
-        font-family: Arial, sans-serif;
-        background-color: var(--figma-color-bg);
-        color: var(--figma-color-text);
-        padding: 20px;
+        font-family: "Honk Sans", sans-serif;
+        background-color: #f3efed;
+        color: #141210;
+        padding: 12px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px 0px;
       }
-      form {
-        margin-bottom: 20px;
-      }
-      h1 {
-        margin-top: 0;
-        color: #007bff;
-      }
-      h2 {
-        margin-top: 20px;
-        color: #555;
-      }
-      input[type="number"] {
+      .section {
         width: 100%;
-        padding: 10px;
-        margin-top: 20px;
-        margin-bottom: 20px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
         box-sizing: border-box;
+        padding: 16px;
+        background: white;
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.06);
+        border-radius: 8px;
+        overflow: hidden;
+        border: 1px #d8d5d3 solid;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        gap: 12px;
+        display: inline-flex;
+      }
+      .section-title {
+        justify-content: flex-start;
+        align-items: center;
+        gap: 8px;
+        display: inline-flex;
+        width: 100%;
+        height: 24px;
+      }
+      .input {
+        display: flex;
+        flex-direction: column;
+        gap: 12px 0px;
+      }
+      .section-input {
+        justify-content: center;
+        align-items: flex-start;
+        gap: 12px;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+      .section-buttons {
+        justify-content: space-between;
+        align-items: flex-end;
+        display: inline-flex;
+      }
+      .section-info {
+        padding: 16px;
+        background: #e0e9ff;
+        box-shadow: 0px 2px 4px rgba(0, 56.46, 204, 0.08);
+        border-radius: 8px;
+        overflow: hidden;
+        border: 1px #c7d0ff solid;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 12px;
+        display: inline-flex;
+      }
+      h3 {
+        font-size: 20px;
+        font-weight: 600;
+      }
+      p {
+        color: #796d61;
+        font-size: 14px;
+        font-weight: 400;
+        word-wrap: break-word;
+        margin: 0;
+      }
+      .info-text {
+        color: #3371eb;
+        font-size: 14px;
+        font-weight: 400;
+        word-wrap: break-word;
+        margin: 0;
+      }
+      input {
+        padding-left: 12px;
+        padding-right: 12px;
+        padding-top: 8px;
+        padding-bottom: 8px;
+        background: white;
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.06);
+        border-radius: 8px;
+        overflow: hidden;
+        border: 1px #d8d5d3 solid;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 8px;
+        display: inline-flex;
+        color: #796d61;
+        font-size: 14px;
+        font-weight: 400;
       }
       button {
-        background-color: #007bff;
-        color: #fff;
-        padding: 10px 20px;
-        border: none;
-        border-radius: 4px;
         cursor: pointer;
-        margin-top: 10px;
+        padding: 12px;
+        background: linear-gradient(180deg, #403e3b 0%, #2b2a28 100%);
+        box-shadow: 0px 0px 0px 0.75px #2b2a28;
+        border-radius: 8px;
+        overflow: hidden;
+        border: 0.75px #737373 solid;
+        justify-content: center;
+        align-items: center;
+        gap: 4px;
+        display: inline-flex;
+        color: white;
+        font-size: 14px;
+        font-weight: 500;
+        word-wrap: break-word;
       }
-      button:hover {
-        background-color: #0056b3;
+      .primary {
+        cursor: pointer;
+        color: black;
+        padding: 12px;
+        background: white;
+        box-shadow: none;
+        border-radius: 8px;
+        overflow: hidden;
+        border: 1px #ebe8e6 solid;
+        justify-content: center;
+        align-items: center;
+        gap: 4px;
+        display: inline-flex;
+        font-size: 14px;
+        font-weight: 500;
+        word-wrap: break-word;
       }
     </style>
   </head>
   <body>
-    <h1>Progressive Blur Generator (Alpha)</h1>
-    <form id="configForm">
-      <div>
-        <label for="startingLayerBlur">Starting layer blur:</label>
-        <input
-          type="number"
-          id="startingLayerBlur"
-          name="startingLayerBlur"
-          placeholder="Enter starting layer blur value"
-          value="1.5"
-          min="0.1"
-          step="0.1"
-        />
+    <div class="section">
+      <div class="section-title">
+        <img src="./icons/Frame.svg" width="24px" height="24px" />
+        <h3>Progressive Blur Generator</h3>
       </div>
-      <div>
-        <label for="maxLayerBlur">Max Layer Blur:</label>
-        <input
-          type="number"
-          id="maxLayerBlur"
-          name="maxLayerBlur"
-          placeholder="Enter max layer blur value"
-          value="40"
-          min="1"
-        />
+      <div class="section-content">
+        <p>
+          Choose a theme to make Kyo feel like home, or use your computer's theme. You can
+          always change this later.
+        </p>
       </div>
-      <div>
-        <label for="layerBlurIncrement">Layer Blur Increment:</label>
-        <input
-          type="number"
-          id="layerBlurIncrement"
-          name="layerBlurIncrement"
-          placeholder="How much the layer blur should increment"
-          value="0.5"
-          min="0.1"
-          step="0.1"
-        />
+    </div>
+    <div class="section">
+      <div class="section-title">
+        <img src="./icons/Layer.svg" width="24px" height="24px" />
+        <h3>Layer Blur</h3>
       </div>
-      <div>
-        <label for="startingBackgroundBlur">Starting background blur:</label>
-        <input
-          type="number"
-          id="startingBackgroundBlur"
-          name="startingBackgroundBlur"
-          placeholder="Enter starting background blur value"
-          value="2"
-          min="1"
-        />
+      <div class="section-content">
+        <div class="section-input">
+          <div class="input">
+            <p>Starting Blur:</p>
+            <input type="number" min="0" placeholder="Start" id="startingLayerBlur" />
+          </div>
+          <div class="input">
+            <p>Blur Increment:</p>
+            <input
+              type="number"
+              min="0"
+              value="1.0"
+              placeholder="Increment"
+              id="layerBlurIncrement"
+            />
+          </div>
+          <div class="input">
+            <p>Ending Blur:</p>
+            <input type="number" min="0" placeholder="End" id="maxLayerBlur" />
+          </div>
+        </div>
       </div>
-      <div>
-        <label for="maxBackgroundBlur">Max Background Blur:</label>
-        <input
-          type="number"
-          id="maxBackgroundBlur"
-          name="maxBackgroundBlur"
-          placeholder="Enter max background blur value"
-          value="50"
-          min="1"
-        />
+    </div>
+    <div class="section">
+      <div class="section-title">
+        <img src="./icons/Background.svg" width="24px" height="24px" />
+        <h3>Background Blur</h3>
       </div>
-      <div>
-        <label for="backgroundBlurIncrement">Background Blur Increment:</label>
-        <input
-          type="number"
-          id="backgroundBlurIncrement"
-          name="backgroundBlurIncrement"
-          placeholder="How much the background blur should increment"
-          value="1"
-          min="0.1"
-        />
+      <div class="section-content">
+        <div class="section-input">
+          <div class="input">
+            <p>Starting Blur:</p>
+            <input
+              type="number"
+              min="0"
+              placeholder="Start"
+              id="startingBackgroundBlur"
+            />
+          </div>
+          <div class="input">
+            <p>Blur Increment:</p>
+            <input
+              type="number"
+              min="0"
+              value="1.0"
+              placeholder="Increment"
+              id="backgroundBlurIncrement"
+            />
+          </div>
+          <div class="input">
+            <p>Ending Blur:</p>
+            <input type="number" min="0" placeholder="End" id="maxBackgroundBlur" />
+          </div>
+        </div>
       </div>
-      <button type="button" onclick="passData()">Create the Blur!</button>
-    </form>
-    <h1>Documentation</h1>
-    <p>
-      Starting layer blur is the blur value of the first rectangle.<br />
-      Max layer blur is the maximum intensity of the layer blur.<br />
-      Layer blur increment is the amount by which the layer blur increases per
-      rectangle.<br />
-      Starting background blur is the initial blur value of the background.<br />
-      Max background blur is the maximum intensity of the background blur.<br />
-      Background blur increment is the amount by which the background blur
-      increases per rectangle.<br />
-      To make the transition between all rectangles smoother, you can adjust the
-      negative gap in the Frame with auto-layout.
-    </p>
-
+    </div>
+    <div class="section-info">
+      <img src="./icons/Info.svg" />
+      <p class="info-text">
+        To smoothen the transition between rectangles, adjust the negative gap in the
+        Frame using auto-layout.
+      </p>
+    </div>
+    <div class="section-buttons">
+      <button class="primary">Github</button>
+      <button>Generate Blur</button>
+    </div>
     <script>
       function passData() {
-        let startingLayerBlur =
-          document.getElementById("startingLayerBlur").value;
+        let startingLayerBlur = document.getElementById("startingLayerBlur").value;
         let maxLayerBlur = document.getElementById("maxLayerBlur").value;
-        let layerBlurIncrement =
-          document.getElementById("layerBlurIncrement").value;
+        let layerBlurIncrement = document.getElementById("layerBlurIncrement").value;
         let startingBackgroundBlur = document.getElementById(
           "startingBackgroundBlur"
         ).value;
-        let maxBackgroundBlur =
-          document.getElementById("maxBackgroundBlur").value;
+        let maxBackgroundBlur = document.getElementById("maxBackgroundBlur").value;
         let backgroundBlurIncrement = document.getElementById(
           "backgroundBlurIncrement"
         ).value;
