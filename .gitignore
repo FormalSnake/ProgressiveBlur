@@ -6,3 +6,6 @@ node_modules
 out/
 dist/
 code.js
+
+# Remove macOS's hidden folder
+.DS_Store
