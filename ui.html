@@ -1,14 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
   <head>
     <meta charset="utf-8" />
     <title>Progressive Blur Configuration</title>
     <meta name="description" content="Configure progressive blur in Figma!" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
     <style>
       @font-face {
         font-family: "Honk Sans";
@@ -16,12 +14,14 @@
         font-weight: 300;
         font-style: normal;
       }
+
       @font-face {
         font-family: "Honk Sans";
         src: url("./fonts/Honk\ Sans\ Semibold.otf");
         font-weight: 600;
         font-style: bold;
       }
+
       body {
         font-family: "Honk Sans", sans-serif;
         background-color: #f3efed;
@@ -31,6 +31,7 @@
         flex-direction: column;
         gap: 12px 0px;
       }
+
       .section {
         width: 100%;
         box-sizing: border-box;
@@ -46,6 +47,7 @@
         gap: 12px;
         display: inline-flex;
       }
+
       .section-title {
         justify-content: flex-start;
         align-items: center;
@@ -54,11 +56,13 @@
         width: 100%;
         height: 24px;
       }
+
       .input {
         display: flex;
         flex-direction: column;
         gap: 12px 0px;
       }
+
       .section-input {
         justify-content: center;
         align-items: flex-start;
@@ -66,11 +70,13 @@
         display: grid;
         grid-template-columns: repeat(3, minmax(0, 1fr));
       }
+
       .section-buttons {
         justify-content: space-between;
         align-items: flex-end;
         display: inline-flex;
       }
+
       .section-info {
         padding: 16px;
         background: #e0e9ff;
@@ -83,10 +89,12 @@
         gap: 12px;
         display: inline-flex;
       }
+
       h3 {
         font-size: 20px;
         font-weight: 600;
       }
+
       p {
         color: #796d61;
         font-size: 14px;
@@ -94,6 +102,7 @@
         word-wrap: break-word;
         margin: 0;
       }
+
       .info-text {
         color: #3371eb;
         font-size: 14px;
@@ -101,6 +110,7 @@
         word-wrap: break-word;
         margin: 0;
       }
+
       input {
         padding-left: 12px;
         padding-right: 12px;
@@ -119,6 +129,7 @@
         font-size: 14px;
         font-weight: 400;
       }
+
       button {
         cursor: pointer;
         padding: 12px;
@@ -136,6 +147,7 @@
         font-weight: 500;
         word-wrap: break-word;
       }
+
       .primary {
         cursor: pointer;
         color: black;
@@ -153,12 +165,21 @@
         font-weight: 500;
         word-wrap: break-word;
       }
+
+      /* Add new striped bg values here */
+      .striped-background {
+        /* Colouring */
+        background-image: linear-gradient(-45deg, rgba(255, 255, 255, 0) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+        /* Width of the lines */
+        background-size: 10px 10px;
+      }
     </style>
   </head>
+
   <body>
     <div class="section">
       <div class="section-title">
-        <img src="./icons/Frame.svg" width="24px" height="24px" />
+        <img title="frame" src="./icons/Frame.svg" width="24px" height="24px" />
         <h3>Progressive Blur Generator</h3>
       </div>
       <div class="section-content">
@@ -170,7 +191,7 @@
     </div>
     <div class="section">
       <div class="section-title">
-        <img src="./icons/Layer.svg" width="24px" height="24px" />
+        <img title="layer" src="./icons/Layer.svg" width="24px" height="24px" />
         <h3>Layer Blur</h3>
       </div>
       <div class="section-content">
@@ -181,13 +202,7 @@
           </div>
           <div class="input">
             <p>Blur Increment:</p>
-            <input
-              type="number"
-              min="0"
-              value="1.0"
-              placeholder="Increment"
-              id="layerBlurIncrement"
-            />
+            <input type="number" min="0" value="1.0" placeholder="Increment" id="layerBlurIncrement" />
           </div>
           <div class="input">
             <p>Ending Blur:</p>
@@ -198,29 +213,18 @@
     </div>
     <div class="section">
       <div class="section-title">
-        <img src="./icons/Background.svg" width="24px" height="24px" />
+        <img title="background" src="./icons/Background.svg" width="24px" height="24px" />
         <h3>Background Blur</h3>
       </div>
       <div class="section-content">
         <div class="section-input">
           <div class="input">
             <p>Starting Blur:</p>
-            <input
-              type="number"
-              min="0"
-              placeholder="Start"
-              id="startingBackgroundBlur"
-            />
+            <input type="number" min="0" placeholder="Start" id="startingBackgroundBlur" />
           </div>
           <div class="input">
             <p>Blur Increment:</p>
-            <input
-              type="number"
-              min="0"
-              value="1.0"
-              placeholder="Increment"
-              id="backgroundBlurIncrement"
-            />
+            <input type="number" min="0" value="1.0" placeholder="Increment" id="backgroundBlurIncrement" />
           </div>
           <div class="input">
             <p>Ending Blur:</p>
@@ -229,12 +233,14 @@
         </div>
       </div>
     </div>
-    <div class="section-info">
-      <img src="./icons/Info.svg" />
+    <!-- Add `stripped-background` to this class -->
+    <div class="section-info striped-background">
+      <img title="info" src="./icons/Info.svg" />
       <p class="info-text">
         To smoothen the transition between rectangles, adjust the negative gap in the
         Frame using auto-layout.
       </p>
+    </div>
     </div>
     <div class="section-buttons">
       <button class="primary">Github</button>
@@ -261,4 +267,5 @@
       }
     </script>
   </body>
+
 </html>
