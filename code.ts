@@ -2,7 +2,7 @@
 // const numberOfSteps = 10; // Het aantal stappen in de gradient
 // const maxBlur = 100; // De maximale blur-waarde
 figma.showUI(__html__, { themeColors: true /* other options */ });
-figma.ui.resize(552, 568);
+figma.ui.resize(552, 600);
 figma.ui.onmessage = (message) => {
   const numbersArray: number[] = message.split(",").map(Number);
   console.log(numbersArray);
