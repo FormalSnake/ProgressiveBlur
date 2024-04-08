@@ -3,14 +3,12 @@
   "id": "1356736586164762457",
   "api": "1.0.0",
   "main": "code.js",
-  "ui": "ui.html",
+  "ui": "index.html",
   "capabilities": [],
   "enableProposedApi": false,
   "editorType": ["figma"],
   "networkAccess": {
-    "allowedDomains": [
-      "https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
-    ]
+    "allowedDomains": ["https://www.formalsnake.dev/"]
   },
   "documentAccess": "dynamic-page"
 }
