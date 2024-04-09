@@ -58,19 +58,21 @@ function Create(
       { type: "BACKGROUND_BLUR", visible: true, radius: currentBackgroundBlur },
       { type: "LAYER_BLUR", visible: true, radius: currentLayerBlur },
     ];
+    /*
     // Old formula
-    //  rect.effects = [
-    //    {
-    //      type: "BACKGROUND_BLUR",
-    //      visible: true,
-    //      radius: maxBlur * ((i + 1) / numberOfSteps),
-    //    },
-    //    {
-    //      type: "LAYER_BLUR",
-    //      visible: true,
-    //      radius: maxBlur * ((i + 0.1) / numberOfSteps),
-    //    },
-    //  ];
+      rect.effects = [
+        {
+          type: "BACKGROUND_BLUR",
+          visible: true,
+          radius: maxBlur * ((i + 1) / numberOfSteps),
+        },
+        {
+          type: "LAYER_BLUR",
+          visible: true,
+          radius: maxBlur * ((i + 0.1) / numberOfSteps),
+        },
+      ];
+    */
 
     rect.layoutAlign = "STRETCH";
     rect.layoutGrow = 1;
