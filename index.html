@@ -240,20 +240,6 @@
             <button onclick="passData()">Generate Blur</button>
         </div>
         <script>
-            // Validate if this works, this is an optimised version 
-            function passData() {
-                const fields = ['startingLayerBlur', 'maxLayerBlur', 'layerBlurIncrement', 'startingBackgroundBlur', 'maxBackgroundBlur', 'backgroundBlurIncrement'];
-                const values = fields.map(id => parseFloat(document.getElementById(id).value));
-
-                if (values.some(value => isNaN(value) || value === 0)) {
-                    alert("One of the values has not been filled in, please fix.");
-                    return;
-                }
-
-                parent.postMessage({ pluginMessage: values.join(',') }, "*");
-            }
-
-            /* Old version
             function passData() {
                 let startingLayerBlur = document.getElementById("startingLayerBlur").value;
                 let maxLayerBlur = document.getElementById("maxLayerBlur").value;
@@ -281,7 +267,6 @@
                     );
                 }
             }
-            */
 
         </script>
     </body>
