@@ -6,7 +6,7 @@
 
  To install the plugin, clone the repository and navigate to the plugin directory.
 
- (This is just a general method, update this for figma i've got no idea)
+ **(This is just a general method, update this for figma i've got no idea)**
 
 ## Development
 
@@ -30,6 +30,8 @@
  3. Use the UI to configure the blur effects.
  4. Click `Generate Blur` to apply the effects to your Figma design.
 
+ **(Also edit this to fit?!)**
+
 ## Contributing
 
  Contributions are welcome! Please read the contributing guidelines before submitting pull requests.
@@ -38,4 +40,4 @@
 
  This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
- (Create your license, Modified MIT is what i use)
+ **(Create your license, Modified MIT is what i use)**
