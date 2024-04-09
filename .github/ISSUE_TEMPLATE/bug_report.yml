@@ -44,15 +44,6 @@ body:
 
   - type: input
     attributes:
-      label: MacOS Version
-      description: Apple Logo -> About This Mac
-      placeholder: |
-        [ex. Ventura 13.1]
-    validations:
-      required: true
-
-  - type: input
-    attributes:
       label: ProgessiveBlur Version
       description: You can find this in ProgessiveBlur\'s about window!
       placeholder: |
