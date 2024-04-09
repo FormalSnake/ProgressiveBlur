@@ -255,12 +255,22 @@
                 let backgroundBlurIncrement = document.getElementById(
                     "backgroundBlurIncrement"
                 ).value;
-                parent.postMessage(
+                if (!startingLayerBlur || startingLayerBlur == 0 ||
+                    !maxLayerBlur || maxLayerBlur == 0 ||
+                    !layerBlurIncrement || layerBlurIncrement == 0 ||
+                    !startingBackgroundBlur || startingBackgroundBlur == 0 ||
+                    !maxBackgroundBlur || maxBackgroundBlur == 0 ||
+                    !backgroundBlurIncrement || backgroundBlurIncrement == 0) 
                     {
-                        pluginMessage: `${startingLayerBlur},${maxLayerBlur},${layerBlurIncrement},${startingBackgroundBlur},${maxBackgroundBlur},${backgroundBlurIncrement}`,
-                    },
-                    "*"
-                );
+                        alert("One of the values has not been filled in, please fix.");
+                    } else{
+                        parent.postMessage(
+                            {
+                                pluginMessage: `${startingLayerBlur},${maxLayerBlur},${layerBlurIncrement},${startingBackgroundBlur},${maxBackgroundBlur},${backgroundBlurIncrement}`,
+                            },
+                            "*"
+                        );
+                    }
             }
         </script>
     </body>
