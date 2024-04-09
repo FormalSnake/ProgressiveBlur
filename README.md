@@ -14,6 +14,10 @@ This plugin allows you to configure progressive blur effects in Figma.
 > [!CAUTION]
 > Based on how this system works, your Figma file might lag a lot. This is because the system creates a bunch of rectangles.
 
+### Activity
+
+![Activity](https://repobeats.axiom.co/api/embed/52534d9b58bd3f693cbdad9e0152556c4c58c792.svg "analytics image")
+
 ## Installation
 
 You get this plugin through the [Figma Community](https://www.figma.com/community/plugin/1356736586164762457/progressive-blur).
