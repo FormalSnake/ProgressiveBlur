@@ -241,33 +241,19 @@
         </div>
         <script>
             function passData() {
-                let startingLayerBlur = document.getElementById("startingLayerBlur").value;
-                let maxLayerBlur = document.getElementById("maxLayerBlur").value;
-                let layerBlurIncrement = document.getElementById("layerBlurIncrement").value;
-                let startingBackgroundBlur = document.getElementById(
-                    "startingBackgroundBlur"
-                ).value;
-                let maxBackgroundBlur = document.getElementById("maxBackgroundBlur").value;
-                let backgroundBlurIncrement = document.getElementById(
-                    "backgroundBlurIncrement"
-                ).value;
-                if (!startingLayerBlur || startingLayerBlur == 0 ||
-                    !maxLayerBlur || maxLayerBlur == 0 ||
-                    !layerBlurIncrement || layerBlurIncrement == 0 ||
-                    !startingBackgroundBlur || startingBackgroundBlur == 0 ||
-                    !maxBackgroundBlur || maxBackgroundBlur == 0 ||
-                    !backgroundBlurIncrement || backgroundBlurIncrement == 0) {
+                const blurValues = ['startingLayerBlur', 'layerBlurIncrement', 'maxLayerBlur', 'startingBackgroundBlur', 'backgroundBlurIncrement', 'maxBackgroundBlur']
+                    .map(id => parseFloat(document.getElementById(id).value))
+                    .reduce((acc, val, idx, arr) => {
+                        if (!isNaN(val)) acc[idx] = val;
+                        return acc;
+                    }, {});
+
+                if (Object.keys(blurValues).length !== 6) {
                     alert("One of the values has not been filled in, please fix.");
                 } else {
-                    parent.postMessage(
-                        {
-                            pluginMessage: `${startingLayerBlur},${maxLayerBlur},${layerBlurIncrement},${startingBackgroundBlur},${maxBackgroundBlur},${backgroundBlurIncrement}`,
-                        },
-                        "*"
-                    );
+                    parent.postMessage({ pluginMessage: blurValues }, "*");
                 }
             }
-
         </script>
     </body>
 
