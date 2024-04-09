@@ -1,263 +1,267 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="utf-8" />
-    <title>Progressive Blur Configuration</title>
-    <meta name="description" content="Configure progressive blur in Figma!" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <style>
-        @font-face {
-            font-weight: 300;
-            font-style: normal;
-            font-family: "Honk Sans";
-            src: url("./fonts/Honk\ Sans\ Regular.otf");
-        }
+    <head>
+        <meta charset="utf-8" />
+        <title>Progressive Blur Configuration</title>
+        <meta name="description" content="Configure progressive blur in Figma!" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <style>
+            @font-face {
+                font-weight: 300;
+                font-style: normal;
+                font-family: "Honk Sans";
+                src: url("./fonts/Honk\ Sans\ Regular.otf");
+            }
 
-        @font-face {
-            font-weight: 600;
-            font-style: bold;
-            font-family: "Honk Sans";
-            src: url("./fonts/Honk\ Sans\ Semibold.otf");
-        }
+            @font-face {
+                font-weight: 600;
+                font-style: bold;
+                font-family: "Honk Sans";
+                src: url("./fonts/Honk\ Sans\ Semibold.otf");
+            }
 
-        body {
-            padding: 12px;
-            display: flex;
-            gap: 12px 0px;
-            color: #141210;
-            flex-direction: column;
-            background-color: #f3efed;
-            font-family: "Honk Sans", sans-serif;
-        }
+            body {
+                padding: 12px;
+                display: flex;
+                gap: 12px 0px;
+                color: #141210;
+                flex-direction: column;
+                background-color: #f3efed;
+                font-family: "Honk Sans", sans-serif;
+            }
 
-        .section {
-            gap: 12px;
-            width: 100%;
-            padding: 16px;
-            overflow: hidden;
-            background: white;
-            border-radius: 8px;
-            display: inline-flex;
-            box-sizing: border-box;
-            flex-direction: column;
-            align-items: flex-start;
-            border: 1px #d8d5d3 solid;
-            justify-content: flex-start;
-            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.06);
-        }
+            .section {
+                gap: 12px;
+                width: 100%;
+                padding: 16px;
+                overflow: hidden;
+                background: white;
+                border-radius: 8px;
+                display: inline-flex;
+                box-sizing: border-box;
+                flex-direction: column;
+                align-items: flex-start;
+                border: 1px #d8d5d3 solid;
+                justify-content: flex-start;
+                box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.06);
+            }
 
-        .section-title {
-            gap: 8px;
-            width: 100%;
-            height: 24px;
-            align-items: center;
-            display: inline-flex;
-            justify-content: flex-start;
-        }
+            .section-title {
+                gap: 8px;
+                width: 100%;
+                height: 24px;
+                align-items: center;
+                display: inline-flex;
+                justify-content: flex-start;
+            }
 
-        .input {
-            display: flex;
-            gap: 12px 0px;
-            flex-direction: column;
-        }
+            .input {
+                display: flex;
+                gap: 12px 0px;
+                flex-direction: column;
+            }
 
-        .section-input {
-            gap: 12px;
-            display: grid;
-            align-items: flex-start;
-            justify-content: center;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-        }
+            .section-input {
+                gap: 12px;
+                display: grid;
+                align-items: flex-start;
+                justify-content: center;
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
 
-        .section-buttons {
-            display: inline-flex;
-            align-items: flex-end;
-            justify-content: space-between;
-        }
+            .section-buttons {
+                display: inline-flex;
+                align-items: flex-end;
+                justify-content: space-between;
+            }
 
-        .section-info {
-            gap: 12px;
-            padding: 16px;
-            overflow: hidden;
-            border-radius: 8px;
-            align-items: center;
-            display: inline-flex;
-            background: #e0e9ff;
-            border: 1px #c7d0ff solid;
-            justify-content: flex-start;
-            box-shadow: 0px 2px 4px rgba(0, 56.46, 204, 0.08);
-        }
+            .section-info {
+                gap: 12px;
+                padding: 16px;
+                overflow: hidden;
+                border-radius: 8px;
+                align-items: center;
+                display: inline-flex;
+                background: #e0e9ff;
+                border: 1px #c7d0ff solid;
+                justify-content: flex-start;
+                box-shadow: 0px 2px 4px rgba(0, 56.46, 204, 0.08);
+            }
 
-        h3 {
-            font-size: 20px;
-            font-weight: 600;
-        }
+            h3 {
+                font-size: 20px;
+                font-weight: 600;
+            }
 
-        p {
-            margin: 0;
-            color: #796d61;
-            font-size: 14px;
-            font-weight: 400;
-            word-wrap: break-word;
-        }
+            p {
+                margin: 0;
+                color: #796d61;
+                font-size: 14px;
+                font-weight: 400;
+                word-wrap: break-word;
+            }
 
-        .info-text {
-            margin: 0;
-            color: #3371eb;
-            font-size: 14px;
-            font-weight: 400;
-            word-wrap: break-word;
-        }
+            .info-text {
+                margin: 0;
+                color: #3371eb;
+                font-size: 14px;
+                font-weight: 400;
+                word-wrap: break-word;
+            }
 
-        input {
-            gap: 8px;
-            color: #796d61;
-            font-size: 14px;
-            padding-top: 8px;
-            overflow: hidden;
-            font-weight: 400;
-            background: white;
-            padding-left: 12px;
-            border-radius: 8px;
-            padding-right: 12px;
-            padding-bottom: 8px;
-            align-items: center;
-            display: inline-flex;
-            border: 1px #d8d5d3 solid;
-            justify-content: flex-start;
-            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.06);
-        }
+            input {
+                gap: 8px;
+                color: #796d61;
+                font-size: 14px;
+                padding-top: 8px;
+                overflow: hidden;
+                font-weight: 400;
+                background: white;
+                padding-left: 12px;
+                border-radius: 8px;
+                padding-right: 12px;
+                padding-bottom: 8px;
+                align-items: center;
+                display: inline-flex;
+                border: 1px #d8d5d3 solid;
+                justify-content: flex-start;
+                box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.06);
+            }
 
-        button {
-            gap: 4px;
-            color: white;
-            padding: 12px;
-            cursor: pointer;
-            font-size: 14px;
-            overflow: hidden;
-            font-weight: 500;
-            line-height: 14px;
-            border-radius: 8px;
-            align-items: center;
-            display: inline-flex;
-            word-wrap: break-word;
-            justify-content: center;
-            border: 0.75px solid #737373;
-            font-family: "Honk Sans", sans-serif;
-            box-shadow: 0px 0px 0px 0.75px #2B2A28;
-            background: linear-gradient(180deg, #403E3B 0%, #2B2A28 100%);
-        }
+            button {
+                gap: 4px;
+                color: white;
+                padding: 12px;
+                cursor: pointer;
+                font-size: 14px;
+                overflow: hidden;
+                font-weight: 500;
+                line-height: 14px;
+                border-radius: 8px;
+                align-items: center;
+                display: inline-flex;
+                word-wrap: break-word;
+                justify-content: center;
+                border: 0.75px solid #737373;
+                font-family: "Honk Sans", sans-serif;
+                box-shadow: 0px 0px 0px 0.75px #2B2A28;
+                background: linear-gradient(180deg, #403E3B 0%, #2B2A28 100%);
+            }
 
-        .primary {
-            color: black;
-            box-shadow: none;
-            overflow: hidden;
-            font-weight: 500;
-            background: white;
-            border: 1px #ebe8e6 solid;
-        }
+            .primary {
+                color: black;
+                box-shadow: none;
+                overflow: hidden;
+                font-weight: 500;
+                background: white;
+                border: 1px #ebe8e6 solid;
+            }
 
-        /* Add new striped bg values here */
-        .striped-background {
-            /* Colouring */
-            background-image: linear-gradient(-45deg, rgba(255, 255, 255, 0) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
-            /* Width of the lines */
-            background-size: 10px 10px;
-        }
-    </style>
-</head>
+            /* Corrected striped background */
+            .striped-background {
+                /* Colouring */
+                background-image: linear-gradient(-45deg, rgba(255, 255, 255, 0) 25%, rgba(255, 255, 255, 0.15) 25%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0) 75%, rgba(255, 255, 255, 0.15) 75%);
+                /* Width of the lines */
+                background-size: 10px 10px;
+            }
+        </style>
+    </head>
 
-<body>
-    <div class="section">
-        <div class="section-title">
-            <img title="frame" src="https://www.formalsnake.dev/assets/figma/Frame.svg" width="24px" height="24px" />
-            <h3>Progressive Blur Generator</h3>
+    <body>
+        <div class="section">
+            <div class="section-title">
+                <img title="frame" src="https://www.formalsnake.dev/assets/figma/Frame.svg" width="24px"
+                    height="24px" />
+                <h3>Progressive Blur Generator</h3>
+            </div>
+            <div class="section-content">
+                <p>
+                    This plugin generates a series of rectangles stacked vertically, each with increasing layer and
+                    background blur according to a set progression. Using Figma's
+                    negative gap, you can easily produce a progressive blur effect.
+                </p>
+            </div>
         </div>
-        <div class="section-content">
-            <p>
-                This plugin generates a series of rectangles stacked vertically, each with increasing layer and background blur according to a set progression. Using Figma's
-                negative gap, you can easily produce a progressive blur effect.
+        <div class="section">
+            <div class="section-title">
+                <img title="layer" src="https://www.formalsnake.dev/assets/figma/Layer.svg" width="24px"
+                    height="24px" />
+                <h3>Layer Blur</h3>
+            </div>
+            <div class="section-content">
+                <div class="section-input">
+                    <div class="input">
+                        <p>Starting Blur:</p>
+                        <input type="number" min="0" placeholder="Start" id="startingLayerBlur" />
+                    </div>
+                    <div class="input">
+                        <p>Blur Increment:</p>
+                        <input type="number" min="0" value="1.0" placeholder="Increment" id="layerBlurIncrement" />
+                    </div>
+                    <div class="input">
+                        <p>Ending Blur:</p>
+                        <input type="number" min="0" placeholder="End" id="maxLayerBlur" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="section-title">
+                <img title="background" src="https://www.formalsnake.dev/assets/figma/Background.svg" width="24px"
+                    height="24px" />
+                <h3>Background Blur</h3>
+            </div>
+            <div class="section-content">
+                <div class="section-input">
+                    <div class="input">
+                        <p>Starting Blur:</p>
+                        <input type="number" min="0" placeholder="Start" id="startingBackgroundBlur" />
+                    </div>
+                    <div class="input">
+                        <p>Blur Increment:</p>
+                        <input type="number" min="0" value="1.0" placeholder="Increment" id="backgroundBlurIncrement" />
+                    </div>
+                    <div class="input">
+                        <p>Ending Blur:</p>
+                        <input type="number" min="0" placeholder="End" id="maxBackgroundBlur" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Add `stripped-background` to this class -->
+        <div class="section-info striped-background">
+            <img title="info" src="https://www.formalsnake.dev/assets/figma/Info.svg" />
+            <p class="info-text">
+                To smoothen the transition between rectangles, adjust the negative gap in the
+                Frame using auto-layout.
             </p>
         </div>
-    </div>
-    <div class="section">
-        <div class="section-title">
-            <img title="layer" src="https://www.formalsnake.dev/assets/figma/Layer.svg" width="24px" height="24px" />
-            <h3>Layer Blur</h3>
         </div>
-        <div class="section-content">
-            <div class="section-input">
-                <div class="input">
-                    <p>Starting Blur:</p>
-                    <input type="number" min="0" placeholder="Start" id="startingLayerBlur" />
-                </div>
-                <div class="input">
-                    <p>Blur Increment:</p>
-                    <input type="number" min="0" value="1.0" placeholder="Increment" id="layerBlurIncrement" />
-                </div>
-                <div class="input">
-                    <p>Ending Blur:</p>
-                    <input type="number" min="0" placeholder="End" id="maxLayerBlur" />
-                </div>
-            </div>
+        <div class="section-buttons">
+            <button class="primary" onclick=" window.open('https://github.com/FormalSnake','_blank')">Github</button>
+            <button onclick="passData()">Generate Blur</button>
         </div>
-    </div>
-    <div class="section">
-        <div class="section-title">
-            <img title="background" src="https://www.formalsnake.dev/assets/figma/Background.svg" width="24px" height="24px" />
-            <h3>Background Blur</h3>
-        </div>
-        <div class="section-content">
-            <div class="section-input">
-                <div class="input">
-                    <p>Starting Blur:</p>
-                    <input type="number" min="0" placeholder="Start" id="startingBackgroundBlur" />
-                </div>
-                <div class="input">
-                    <p>Blur Increment:</p>
-                    <input type="number" min="0" value="1.0" placeholder="Increment" id="backgroundBlurIncrement" />
-                </div>
-                <div class="input">
-                    <p>Ending Blur:</p>
-                    <input type="number" min="0" placeholder="End" id="maxBackgroundBlur" />
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Add `stripped-background` to this class -->
-    <div class="section-info striped-background">
-        <img title="info" src="https://www.formalsnake.dev/assets/figma/Info.svg" />
-        <p class="info-text">
-            To smoothen the transition between rectangles, adjust the negative gap in the
-            Frame using auto-layout.
-        </p>
-    </div>
-    </div>
-    <div class="section-buttons">
-        <button class="primary" onclick=" window.open('https://github.com/FormalSnake','_blank')">Github</button>
-        <button onclick="passData()">Generate Blur</button>
-    </div>
-    <script>
-        function passData() {
-            let startingLayerBlur = document.getElementById("startingLayerBlur").value;
-            let maxLayerBlur = document.getElementById("maxLayerBlur").value;
-            let layerBlurIncrement = document.getElementById("layerBlurIncrement").value;
-            let startingBackgroundBlur = document.getElementById(
-                "startingBackgroundBlur"
-            ).value;
-            let maxBackgroundBlur = document.getElementById("maxBackgroundBlur").value;
-            let backgroundBlurIncrement = document.getElementById(
-                "backgroundBlurIncrement"
-            ).value;
-            parent.postMessage(
-                {
-                    pluginMessage: `${startingLayerBlur},${maxLayerBlur},${layerBlurIncrement},${startingBackgroundBlur},${maxBackgroundBlur},${backgroundBlurIncrement}`,
-                },
-                "*"
-            );
-        }
-    </script>
-</body>
+        <script>
+            function passData() {
+                let startingLayerBlur = document.getElementById("startingLayerBlur").value;
+                let maxLayerBlur = document.getElementById("maxLayerBlur").value;
+                let layerBlurIncrement = document.getElementById("layerBlurIncrement").value;
+                let startingBackgroundBlur = document.getElementById(
+                    "startingBackgroundBlur"
+                ).value;
+                let maxBackgroundBlur = document.getElementById("maxBackgroundBlur").value;
+                let backgroundBlurIncrement = document.getElementById(
+                    "backgroundBlurIncrement"
+                ).value;
+                parent.postMessage(
+                    {
+                        pluginMessage: `${startingLayerBlur},${maxLayerBlur},${layerBlurIncrement},${startingBackgroundBlur},${maxBackgroundBlur},${backgroundBlurIncrement}`,
+                    },
+                    "*"
+                );
+            }
+        </script>
+    </body>
 
 </html>
