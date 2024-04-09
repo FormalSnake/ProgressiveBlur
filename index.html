@@ -159,11 +159,8 @@
                 border: 1px #ebe8e6 solid;
             }
 
-            /* Corrected striped background */
             .striped-background {
-                /* Colouring */
                 background-image: linear-gradient(-45deg, rgba(255, 255, 255, 0) 25%, rgba(255, 255, 255, 0.15) 25%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0) 75%, rgba(255, 255, 255, 0.15) 75%);
-                /* Width of the lines */
                 background-size: 10px 10px;
             }
         </style>
@@ -230,7 +227,6 @@
                 </div>
             </div>
         </div>
-        <!-- Add `stripped-background` to this class -->
         <div class="section-info striped-background">
             <img title="info" src="https://www.formalsnake.dev/assets/figma/Info.svg" />
             <p class="info-text">
@@ -260,17 +256,16 @@
                     !layerBlurIncrement || layerBlurIncrement == 0 ||
                     !startingBackgroundBlur || startingBackgroundBlur == 0 ||
                     !maxBackgroundBlur || maxBackgroundBlur == 0 ||
-                    !backgroundBlurIncrement || backgroundBlurIncrement == 0) 
-                    {
-                        alert("One of the values has not been filled in, please fix.");
-                    } else{
-                        parent.postMessage(
-                            {
-                                pluginMessage: `${startingLayerBlur},${maxLayerBlur},${layerBlurIncrement},${startingBackgroundBlur},${maxBackgroundBlur},${backgroundBlurIncrement}`,
-                            },
-                            "*"
-                        );
-                    }
+                    !backgroundBlurIncrement || backgroundBlurIncrement == 0) {
+                    alert("One of the values has not been filled in, please fix.");
+                } else {
+                    parent.postMessage(
+                        {
+                            pluginMessage: `${startingLayerBlur},${maxLayerBlur},${layerBlurIncrement},${startingBackgroundBlur},${maxBackgroundBlur},${backgroundBlurIncrement}`,
+                        },
+                        "*"
+                    );
+                }
             }
         </script>
     </body>
