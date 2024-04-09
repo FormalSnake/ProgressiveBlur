@@ -1,6 +1,7 @@
-// FormalSnake Progressive Blur
-// const numberOfSteps = 10; // Het aantal stappen in de gradient
-// const maxBlur = 100; // De maximale blur-waarde
+/* FormalSnake's Progressive Blur                            */
+/* Made April 2 2024                                         */
+/* Do not redistribute this in a way that breaks the license */
+
 figma.showUI(__html__, { themeColors: true /* other options */ });
 figma.ui.resize(552, 600);
 figma.ui.onmessage = (message) => {
@@ -57,6 +58,7 @@ function Create(
       { type: "BACKGROUND_BLUR", visible: true, radius: currentBackgroundBlur },
       { type: "LAYER_BLUR", visible: true, radius: currentLayerBlur },
     ];
+    // Old formula
     //  rect.effects = [
     //    {
     //      type: "BACKGROUND_BLUR",
@@ -75,11 +77,6 @@ function Create(
 
     frame.appendChild(rect);
   }
-  // Selecteer het frame en zoom in op het canvas
   figma.currentPage.appendChild(frame);
   figma.currentPage.selection = [frame];
-
-  // Make sure to close the plugin when you're done. Otherwise the plugin will
-  // keep running, which shows the cancel button at the bottom of the screen.
-  // figma.closePlugin();
 }
