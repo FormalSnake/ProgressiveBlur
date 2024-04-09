@@ -19,7 +19,7 @@ This plugin allows you to configure progressive blur effects in Figma.
 
 ## Installation
 
-You get this plugin through the [Figma marketplace](https://www.figma.com/community/plugin/1356736586164762457/progressive-blur).
+You get this plugin through the [Figma Community](https://www.figma.com/community/plugin/1356736586164762457/progressive-blur).
 
 ## Development
 
