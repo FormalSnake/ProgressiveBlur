@@ -1,13 +1,26 @@
+<div align="center">
+
 # Progressive Blur Figma Plugin
+
+[![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE.md)
+[![Open Issues](https://img.shields.io/github/issues/FormalSnake/ProgressiveBlur.svg)](https://github.com/FormalSnake/ProgressiveBlur)
 
 This plugin allows you to configure progressive blur effects in Figma.
 <img width="1440" alt="imageShowcase" src="https://github.com/FormalSnake/ProgressiveBlur/blob/main/assets/imageShowcase.png?raw=true">
+
+</div>
+
+> [!CAUTION]
+> Based on how this system works, your Figma file might lag a lot. This is because the system creates a bunch of rectangles.
 
 ## Installation
 
 You get this plugin through the [Figma marketplace](https://www.figma.com/community/plugin/1356736586164762457/progressive-blur).
 
 ## Development
+
+> [!NOTE]
+> There is a Figma plugin limitation that does not allow for the code to be organized better. If you know a workaround it is always welcome to create a pull request.
 
 To make changes to the plugin:
 
@@ -37,3 +50,5 @@ Contributions are welcome! Please read the contributing guidelines before submit
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+© 2024 FormalSnake. All rights reserved.
