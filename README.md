@@ -1,7 +1,7 @@
 # Progressive Blur Figma Plugin
 
 This plugin allows you to configure progressive blur effects in Figma.
-[](./assets/imageShowcase.png)
+<img width="1440" alt="imageShowcase" src="https://github.com/FormalSnake/ProgressiveBlur/blob/main/assets/imageShowcase.png?raw=true">
 
 ## Installation
 
