@@ -9,7 +9,7 @@ This plugin allows you to configure progressive blur effects in Figma.
 
 </div>
 
-<img width="1440" alt="imageShowcase" src="/assets/imageShowcase.png">
+<img width="1440" alt="imageShowcase" src="https://raw.githubusercontent.com/FormalSnake/ProgressiveBlur/main/assets/imageShowcase.png">
 
 > [!CAUTION]
 > Based on how this system works, your Figma file might lag a lot. This is because the system creates a bunch of rectangles.
@@ -56,4 +56,4 @@ Contributions are welcome! Please read the contributing guidelines before submit
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-© 2024 FormalSnake. All rights reserved.
+© 2025 FormalSnake. All rights reserved.
